@@ -3,13 +3,13 @@
 %define develname	%mklibname %{name} -d
 
 Name:		spglib
-Version:	1.10.2
+Version:	1.10.3
 Release:	1
 Summary:	C library for finding and handling crystal symmetries
 License:	BSD
 Group:		System/Libraries
 Url:		https://atztogo.github.io/spglib/
-Source:		https://github.com/atztogo/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/atztogo/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool
@@ -49,7 +49,7 @@ developing applications that use %{name}.
 touch INSTALL NEWS README AUTHORS
 autoreconf -vfi
 
-%configure2_5x --disable-static
+%configure --disable-static
 
 %make
 
@@ -63,7 +63,8 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/libsymspg.so.%{major}*
 
 %files -n %{develname}
-%doc ChangeLog README.md COPYING
+%doc ChangeLog README.md
+%license COPYING
 %{_includedir}/%{name}/
 %{_libdir}/libsymspg.so
 
