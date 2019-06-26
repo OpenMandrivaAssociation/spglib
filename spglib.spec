@@ -3,7 +3,7 @@
 %define develname	%mklibname %{name} -d
 
 Name:		spglib
-Version:	1.10.3
+Version:	1.12.2
 Release:	2
 Summary:	C library for finding and handling crystal symmetries
 License:	BSD
