@@ -4,7 +4,7 @@
 
 Name:		spglib
 Version:	1.16.0
-Release:	1
+Release:	2
 Summary:	C library for finding and handling crystal symmetries
 License:	BSD
 Group:		System/Libraries
