@@ -1,15 +1,15 @@
-%define major		0
+%define major		2
 %define libname		%mklibname symspg %{major}
 %define develname	%mklibname %{name} -d
 
 Name:		spglib
-Version:	1.16.0
-Release:	2
+Version:	2.3.1
+Release:	1
 Summary:	C library for finding and handling crystal symmetries
 License:	BSD
 Group:		System/Libraries
-Url:		https://atztogo.github.io/spglib/
-Source0:	https://github.com/atztogo/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
+Url:		https://spglib.readthedocs.io/en/latest/
+Source0:	https://github.com/spglib/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	libtool
@@ -46,15 +46,12 @@ developing applications that use %{name}.
 %setup -q
 
 %build
-touch INSTALL NEWS README AUTHORS
-autoreconf -vfi
+%cmake -G Ninja
+%ninja
 
-%configure --disable-static
-
-%make
 
 %install
-%makeinstall_std
+%ninja_install -C build
 
 # we don't want these
 find %{buildroot} -name '*.la' -delete
@@ -63,8 +60,11 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/libsymspg.so.%{major}*
 
 %files -n %{develname}
-%doc ChangeLog README.md
+%doc ChangeLog.md README.md
 %license COPYING
-%{_includedir}/%{name}/
+%{_includedir}/%{name}.h
 %{_libdir}/libsymspg.so
+%{_libdir}/cmake/Spglib
+%{_libdir}/pkgconfig/spglib.pc
+
 
