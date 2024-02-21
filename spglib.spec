@@ -12,7 +12,7 @@ Url:		https://spglib.readthedocs.io/en/latest/
 Source0:	https://github.com/spglib/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	cmake
 BuildRequires:	ninja
-BuildRequires:	git
+BuildRequires:	pkgconfig(gtest)
 
 %description
 C library for finding and handling crystal symmetries.
