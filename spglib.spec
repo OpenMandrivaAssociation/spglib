@@ -10,9 +10,8 @@ License:	BSD
 Group:		System/Libraries
 Url:		https://spglib.readthedocs.io/en/latest/
 Source0:	https://github.com/spglib/spglib/archive/v%{version}/%{name}-%{version}.tar.gz
-BuildRequires:	automake
-BuildRequires:	autoconf
-BuildRequires:	libtool
+BuildRequires:	cmake
+BuildRequires:	ninja
 
 %description
 C library for finding and handling crystal symmetries.
